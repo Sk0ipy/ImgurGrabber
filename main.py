@@ -130,10 +130,28 @@ def run_script(app):
         valid = is_valid_cached(url)
         app.root.after(0, app.update_counters, valid)
         if valid:
+            print(f"Valid URL {url}")
             add_to_database(url)
+        else:
+            print(f"Invalid URL {url}")
 
+
+def test_run():
+    # Test URL
+    test_url = "https://i.imgur.com/aQR85cF.png"
+
+    # Check if the URL is valid
+    valid = asyncio.run(is_valid_async(test_url))
+
+    # Print the result
+    if valid:
+        print(f"The URL {test_url} is valid.")
+    else:
+        print(f"The URL {test_url} is invalid.")
+        exit()
 
 def main():
+    test_run()
     root = ThemedTk(theme="equilux")  # Using a themed Tkinter window
     app = App(root)
 

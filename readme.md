@@ -38,3 +38,5 @@ CREATE TABLE imgur_photos (
     url VARCHAR(255) NOT NULL,
     date_added DATE NOT NULL
 );
+
+python 3.13
